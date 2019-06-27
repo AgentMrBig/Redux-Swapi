@@ -4,6 +4,24 @@ import { connect } from "react-redux";
 import { CharacterList } from "../components";
 // import actions
 import { getCharacters } from "../actions";
+import styled from 'styled-components';
+
+const ListWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+`
+
+const Message = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  height: 50px;
+  margin: 200px;
+
+`
 
 class CharacterListView extends React.Component {
   constructor(props) {
@@ -19,13 +37,13 @@ class CharacterListView extends React.Component {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
       return (
-        <span>Looking for Star Wars characters!</span>
+        <Message>Looking for Star Wars characters!</Message>
       )
     }
     return (
-      <div className="CharactersList_wrapper">
+      <ListWrapper className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
-      </div>
+      </ListWrapper>
     );
   }
 }
